@@ -2,10 +2,6 @@
 # 5th grade class - 10.Feb.2019
 # Team: Odysseas Kroustalios, Evi Anagnostopoulou, George Karagiannopoulos 
 
-# Some nice videos to see how astronauts live in space: 
-# https://www.youtube.com/watch?v=7k2uKb9vCOI
-# https://www.youtube.com/watch?v=RwvLm7UmlY8
-
 from sense_hat import SenseHat
 from time import sleep
 
@@ -21,7 +17,7 @@ w=(255,255,255)
 gr=(128,128,128)
 p=(128,0,128)
 
-sense.show_message("Hello from Patras", text_colour=b, back_colour=y)
+sense.show_message("Hello from Patras, Greece", text_colour=b, back_colour=y, scroll_speed=0.04)
 
 ody = [b,b,b,g,b,g,b,b,
        g,g,g,b,g,b,g,b,
@@ -50,18 +46,16 @@ george=[bl,bl,bl,bl,bl,bl,bl,bl,
         bl,bl,b,b,b,b,bl,bl,
         bl,bl,bl,b,b,bl,bl,bl]       
 
-number_of_times=1
-while (number_of_times <= 3):
-  sense.show_message("Time: " + str(number_of_times), scroll_speed=0.02)
-  sense.show_message("Ody's picture now:", scroll_speed=0.02) 
-  sense.set_pixels(ody)
-  sleep(1)
-  sense.show_message("Evi's picture now:", scroll_speed=0.02)
-  sense.set_pixels(evi)
-  sleep(1)
-  sense.show_message("George's picture now:", scroll_speed=0.02)
-  sense.set_pixels(george)
-  sleep(1)
-  number_of_times = number_of_times + 1
+sense.show_message("Ody's drawing:", scroll_speed=0.02) 
+sense.set_pixels(ody)
+sleep(1)
+sense.show_message("Evi's drawing:", scroll_speed=0.02)
+sense.set_pixels(evi)
+sleep(1)
+sense.show_message("George's drawing:", scroll_speed=0.02)
+sense.set_pixels(george)
+sleep(1)
 
-sense.show_message("Goodbye now!", scroll_speed=0.02) 
+temperature_now=sense.get_temperature()
+sense.show_message("The temperature now is: " + str(temperature_now), scroll_speed=0.02) 
+sense.show_message("Goodbye now!", scroll_speed=0.02)
